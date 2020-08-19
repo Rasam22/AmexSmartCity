@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg3"
+    >
+
+
+    <TextView
+        android:id="@+id/choose01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="28dp"
+        android:textStyle="bold"
+        android:text="Choose Your Payment Mode"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/receipt1"
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="104dp"
+        android:hint="Receipt Number"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/phonepe"
+        android:layout_width="93dp"
+        android:layout_height="104dp"
+        android:layout_alignStart="@+id/choose01"
+        android:layout_alignParentBottom="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_marginStart="186dp"
+        android:layout_marginBottom="330dp"
+        android:background="@drawable/phonepe" />
+
+    <Button
+        android:id="@+id/qpay"
+        android:layout_width="108dp"
+        android:layout_height="101dp"
+        android:layout_alignTop="@+id/phonepe"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="141dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_marginEnd="251dp"
+        android:background="@drawable/gpay" />
+
+    <Button
+        android:id="@+id/paypal"
+        android:layout_width="wrap_content"
+        android:layout_height="91dp"
+        android:layout_alignStart="@+id/choose01"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="125dp"
+        android:layout_marginBottom="186dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/paypal" />
+
+    <Button
+        android:id="@+id/paytm01"
+        android:layout_width="wrap_content"
+        android:layout_height="76dp"
+        android:layout_alignBottom="@+id/paypal"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="263dp"
+        android:layout_marginBottom="164dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/paytm" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="79dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/paypal"
+        android:layout_alignParentEnd="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="-136dp"
+        android:background="@drawable/next" />
+</RelativeLayout>
