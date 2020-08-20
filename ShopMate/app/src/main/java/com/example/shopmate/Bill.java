@@ -213,54 +213,44 @@ public class Bill extends Activity {
         productRef = FirebaseDatabase.getInstance().getReference().child("Products").child(id);
         Log.d("Bill","fetching data");
 
-        Item item1= new Item("T-Shirt",1,300);
+        productRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Log.d("Bill","existsssss");
+                    String price = dataSnapshot.child("price").getValue().toString();
+                    String quantity = dataSnapshot.child("quantity").getValue().toString();
+                    String name = dataSnapshot.child("name").getValue().toString();
 
-        if(!itemList.contains(item1)){
-            itemList.add(item1);
-        }
+                    Log.d("Bill",name + price + quantity);
 
-        ItemsList adapter = new ItemsList(Bill.this,itemList);
-        listviewitems.setAdapter(adapter);
-        dialog.cancel();
+                    Item item1= new Item(name,Integer.parseInt(quantity),Integer.parseInt(price));
+                    if(!itemList.contains(item1)){
+                        itemList.add(item1);
+                    }
 
-//        productRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                    Log.d("Bill","existsssss");
-//                    String price = dataSnapshot.child("price").getValue().toString();
-//                    String quantity = dataSnapshot.child("quantity").getValue().toString();
-//                    String name = dataSnapshot.child("name").getValue().toString();
-//
-//                    Log.d("Bill",name + price + quantity);
-//
-//                    Item item1= new Item(name,Integer.parseInt(quantity),Integer.parseInt(price));
-//                    if(!itemList.contains(item1)){
-//                        itemList.add(item1);
-//                    }
-//
-//                    Log.d("Bill","item added");
-//
-//                    ItemsList adapter = new ItemsList(Bill.this,itemList);
-//                    listviewitems.setAdapter(adapter);
-//                    Log.d("Bill","adapter set");
-//
-//                    dialog.cancel();
-//
-//                    Toast.makeText(Bill.this, "Item added", Toast.LENGTH_SHORT).show();
-//
-//                }else{
-//                    Log.d("Bill","doesnt exist");
-//                    Toast.makeText(Bill.this, "Item not present!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Log.d("Bill",databaseError.getMessage());
-//                Log.d("Bill",databaseError.getDetails());
-//            }
-//        });
+                    Log.d("Bill","item added");
+
+                    ItemsList adapter = new ItemsList(Bill.this,itemList);
+                    listviewitems.setAdapter(adapter);
+                    Log.d("Bill","adapter set");
+
+                    dialog.cancel();
+
+                    Toast.makeText(Bill.this, "Item added", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Log.d("Bill","doesnt exist");
+                    Toast.makeText(Bill.this, "Item not present!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("Bill",databaseError.getMessage());
+                Log.d("Bill",databaseError.getDetails());
+            }
+        });
     }
 
 }
