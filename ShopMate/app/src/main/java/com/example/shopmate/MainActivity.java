@@ -15,6 +15,7 @@ import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Declaration
     Button btnMove;
     Button help;
     TextView username;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Initialization and Instantiation
         FirebaseApp.initializeApp(this);
         btnMove = (Button)findViewById(R.id.ok);
         help=(Button)findViewById(R.id.help);
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     String input = username.getText().toString();
-                    Intent i = new Intent(MainActivity.this,Bill.class);
+                    Intent i = new Intent(MainActivity.this,Bill.class); //To proceed to bill calculation activity
                     i.putExtra("input",input);
                     startActivity(i);
                 }
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,chatbot.class);
+                Intent intent = new Intent(MainActivity.this,chatbot.class); //To proceed to chatbot for help
                 startActivity(intent);
             }
         });

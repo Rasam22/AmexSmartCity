@@ -1,5 +1,6 @@
 package com.example.shopmate;
 
+//Getter and Setter Class for items to be purchased
 public class Item {
     String item;
     int quantity;

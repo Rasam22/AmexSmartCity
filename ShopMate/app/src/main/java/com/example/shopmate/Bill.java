@@ -37,6 +37,7 @@ import java.util.List;
 
 public class Bill extends Activity {
 
+    //Declarations
     Button pay1,scanBt;
     private TextView txtInput;
     DatabaseReference databaseRef;
@@ -50,22 +51,13 @@ public class Bill extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bill_layout);
 
+        //Initialization
         txtInput = (TextView)findViewById(R.id.bill_cartno);
         FirebaseApp.initializeApp(this);
         databaseRef = FirebaseDatabase.getInstance().getReference("Carts");
         listviewitems = (ListView) findViewById(R.id.listViewItems);
         itemList=new ArrayList<>();
 
-        Item item1=new Item("Maggi Noodles",2,10);
-        Item item2=new Item("Soap",2,16);
-        Item item3=new Item("Washing powder",1,100);
-        Item item4=new Item("Lays",5,20);
-        itemList.add(item1);
-        itemList.add(item2);
-        itemList.add(item3);
-        itemList.add(item4);
-        ItemsList adapter = new ItemsList(Bill.this,itemList);
-        listviewitems.setAdapter(adapter);
 
         Intent i = getIntent();
         final String input = i.getStringExtra("input");
@@ -82,6 +74,8 @@ public class Bill extends Activity {
             }
         });
 
+
+        //Call to scanner to purchase items
         findViewById(R.id.scanBt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +84,7 @@ public class Bill extends Activity {
         });
     }
 
+    //updates purchase list as soon as database is updated
     @Override
     protected void onStart() {
         super.onStart();
@@ -121,6 +116,7 @@ public class Bill extends Activity {
         }
     }
 
+    //Function to implement scanner
     private void showScanner() {
 
         SurfaceView surfaceView;

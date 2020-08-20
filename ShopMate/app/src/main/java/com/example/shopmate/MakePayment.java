@@ -12,6 +12,8 @@ import android.widget.Toast;
 import java.util.Date;
 
 public class MakePayment extends Activity {
+
+    //Declaration
     Button phonepe;
     Button paytm;
     Button paypal;
@@ -23,6 +25,7 @@ public class MakePayment extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.make_payment);
 
+        //Instantiation
         phonepe = (Button)findViewById(R.id.phonepe);
         paytm = (Button)findViewById(R.id.paytm01);
         paypal = (Button)findViewById(R.id.paypal);
@@ -62,6 +65,8 @@ public class MakePayment extends Activity {
                 receipt1.setText(q);
             }
         });
+
+        //To proceed to exit store after payment
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

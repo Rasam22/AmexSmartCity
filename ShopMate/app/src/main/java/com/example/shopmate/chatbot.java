@@ -30,6 +30,8 @@ import java.io.InputStream;
 import java.util.UUID;
 
 public class chatbot extends AppCompatActivity {
+
+    //Declaration
     private static final String TAG = chatbot.class.getSimpleName();
     private static final int USER = 10001;
     private static final int BOT = 10002;
@@ -39,11 +41,14 @@ public class chatbot extends AppCompatActivity {
     private EditText queryEditText;
     private SessionsClient sessionsClient;
     private SessionName session;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chatbot);
 
+        //Instantiation
         final ScrollView scrollview = findViewById(R.id.chatScrollView);
         scrollview.post(() -> scrollview.fullScroll(ScrollView.FOCUS_DOWN));
 
@@ -70,6 +75,7 @@ public class chatbot extends AppCompatActivity {
         initV2Chatbot();
     }
 
+    //Read Dialogflow credentials to connect to google cloud services
     private void initV2Chatbot() {
         try {
             InputStream stream = getResources().openRawResource(R.raw.test_agent_credentials);
@@ -85,6 +91,7 @@ public class chatbot extends AppCompatActivity {
         }
     }
 
+    //Function to send customer's query to server
     private void sendMessage(View view) {
         String msg = queryEditText.getText().toString();
         if (msg.trim().isEmpty()) {
@@ -98,6 +105,7 @@ public class chatbot extends AppCompatActivity {
             new RequestJavaV2Task(chatbot.this, session, sessionsClient, queryInput).execute();
         }
     }
+    //Function to Get response from server
     public void callbackV2(DetectIntentResponse response) {
         if (response != null) {
             // process aiResponse here

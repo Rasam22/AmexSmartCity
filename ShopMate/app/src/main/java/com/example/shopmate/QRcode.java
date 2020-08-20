@@ -27,6 +27,7 @@ import java.util.Calendar;
 
 public class QRcode extends Activity{
 
+    //Declaration
     public final static int QRcodeWidth = 500 ;
     private static final String IMAGE_DIRECTORY = "/QRcodeDemonuts";
     Bitmap bitmap ;
@@ -46,6 +47,7 @@ public class QRcode extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qr_code);
 
+        //Instantiation
         iv = (ImageView) findViewById(R.id.iv);
         etqr = (EditText) findViewById(R.id.etqr);
         btn = (Button) findViewById(R.id.btn);
@@ -76,6 +78,7 @@ public class QRcode extends Activity{
 
     }
 
+    //Function to save bitmap for QR generated as image
     public String saveImage(Bitmap myBitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
