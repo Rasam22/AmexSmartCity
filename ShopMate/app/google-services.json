@@ -1,71 +1,34 @@
 {
   "project_info": {
-    "project_number": "696313474406",
-    "firebase_url": "https://procart-69502.firebaseio.com",
-    "project_id": "procart-69502",
-    "storage_bucket": "procart-69502.appspot.com"
+    "project_number": "641982391007",
+    "firebase_url": "https://shopmate-2f7a0.firebaseio.com",
+    "project_id": "shopmate-2f7a0",
+    "storage_bucket": "shopmate-2f7a0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:696313474406:android:9a520037bce89832206ca7",
+        "mobilesdk_app_id": "1:641982391007:android:ad3302b8e5598edb59bf6a",
         "android_client_info": {
           "package_name": "com.example.shopmate"
         }
       },
       "oauth_client": [
         {
-          "client_id": "696313474406-t1c4qvlkjlfjlkl7acbegrcfvl4srq05.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.shopmate",
-            "certificate_hash": "6cc369e850f98a66efa6706f68081a81a0260256"
-          }
-        },
-        {
-          "client_id": "696313474406-bjii2rlg2eoh6lbofiodeno8tojtfe6m.apps.googleusercontent.com",
+          "client_id": "641982391007-b2m8g9cm5febkp1jkhrl69m5lcgmtpc4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBofqG4iZELvpzkwbG97IkhjgA6GLIVDGg"
+          "current_key": "AIzaSyA3sA8hRgG8_xtKfohgOw0Xr4mUs8oLRYc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "696313474406-bjii2rlg2eoh6lbofiodeno8tojtfe6m.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:696313474406:android:37cd0f6c052e1b7d206ca7",
-        "android_client_info": {
-          "package_name": "com.horizon.procart.procart"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "696313474406-bjii2rlg2eoh6lbofiodeno8tojtfe6m.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBofqG4iZELvpzkwbG97IkhjgA6GLIVDGg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "696313474406-bjii2rlg2eoh6lbofiodeno8tojtfe6m.apps.googleusercontent.com",
+              "client_id": "641982391007-b2m8g9cm5febkp1jkhrl69m5lcgmtpc4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -20,6 +20,17 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/scanBt"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/paybtn"
+        android:text="SCAN" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/pay1"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
