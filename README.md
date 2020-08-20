@@ -1,7 +1,6 @@
 # AmexSmartCity
-
 # ShopMate
-# Smart Store for a Smart City
+Smart Store for a Smart City
 
 Our Project is based on automating the shopping experience of people providing them a self checkout facility through a Mobile Application and solving their queries through it.
 For this the following methodology is followed :
