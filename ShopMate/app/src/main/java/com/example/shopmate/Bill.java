@@ -184,7 +184,6 @@ public class Bill extends Activity {
                 if (barcodes.size() != 0) {
 
                     txtBarcodeValue.post(new Runnable() {
-
                         @Override
                         public void run() {
 
@@ -194,9 +193,9 @@ public class Bill extends Activity {
                             Log.d("Bill","fetch data");
 
                             fetchData(intentData[0]);
+                            barcodeDetector.release();
+                            cameraSource.release();
                             dialog.cancel();
-
-                            //TODO data is present here
 
                         }
                     });
@@ -225,6 +224,7 @@ public class Bill extends Activity {
                     Log.d("Bill",name + price + quantity);
 
                     Item item1= new Item(name,Integer.parseInt(quantity),Integer.parseInt(price));
+
                     if(!itemList.contains(item1)){
                         itemList.add(item1);
                     }
