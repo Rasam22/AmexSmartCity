@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.vision.CameraSource;
@@ -34,6 +36,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Bill extends Activity {
 
@@ -209,6 +213,7 @@ public class Bill extends Activity {
         Log.d("Bill","fetching data");
 
         productRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -221,11 +226,20 @@ public class Bill extends Activity {
 
                     Item item1= new Item(name,Integer.parseInt(quantity),Integer.parseInt(price));
 
-                    if(!itemList.contains(item1)){
-                        itemList.add(item1);
+                    if(itemList.stream().map(Item::getItem).filter(name::equals).findFirst().isPresent())
+                    {
+                        for(int i=0;i<itemList.size();i++){
+                            if(name.equals(itemList.get(i).getItem())){
+                                itemList.remove(itemList.get(i));
+                                break;
+                            }
+                        }
+                        Toast.makeText(Bill.this, "Item removed", Toast.LENGTH_SHORT).show();
                     }
-
-                    Log.d("Bill","item added");
+                    else{
+                        itemList.add(item1);
+                        Toast.makeText(Bill.this, "Item added", Toast.LENGTH_SHORT).show();
+                    }
 
                     ItemsList adapter = new ItemsList(Bill.this,itemList);
                     listviewitems.setAdapter(adapter);
@@ -233,7 +247,7 @@ public class Bill extends Activity {
 
                     dialog.cancel();
 
-                    Toast.makeText(Bill.this, "Item added", Toast.LENGTH_SHORT).show();
+
 
                 }else{
                     Log.d("Bill","doesnt exist");
